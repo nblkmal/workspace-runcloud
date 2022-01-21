@@ -23,6 +23,8 @@ class CreateTasksTable extends Migration
 
             $table->unsignedInteger('workspace_id')->nullable();
             $table->foreign('workspace_id')->references('id')->on('workspaces');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->timestamps();
         });
