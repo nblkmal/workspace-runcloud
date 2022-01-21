@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Task;
+use App\Models\Workspace;
 use App\Observers\TaskObserver;
 use App\Observers\WorkspaceObserver;
 use Illuminate\Support\Facades\Event;
