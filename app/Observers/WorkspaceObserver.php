@@ -15,7 +15,7 @@ class WorkspaceObserver
      */
     public function creating(Workspace $workspace)
     {
-        $task->uuid = Str::uuid();
+        $workspace->uuid = Str::uuid();
     }
 
     /**
