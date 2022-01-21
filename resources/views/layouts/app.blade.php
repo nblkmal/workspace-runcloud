@@ -18,7 +18,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    {{-- Icons --}}
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
+
+<style>
+    .card-white {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+    }
+</style>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -52,6 +64,16 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link d-inline-flex align-items-center" href="{{ route('workspace:index') }}">
+                                    <i class="ri-folder-3-fill"></i>{{ __('Workspaces') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-inline-flex align-items-center" href="{{ route('workspace:index') }}">
+                                    <i class="ri-task-fill"></i>{{ __('Pending Tasks') }}
+                                </a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
