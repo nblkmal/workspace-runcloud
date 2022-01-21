@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Workspace;
+use Illuminate\Support\Str;
 
 class WorkspaceObserver
 {
@@ -12,9 +13,9 @@ class WorkspaceObserver
      * @param  \App\Models\Workspace  $workspace
      * @return void
      */
-    public function created(Workspace $workspace)
+    public function creating(Workspace $workspace)
     {
-        //
+        $task->uuid = Str::uuid();
     }
 
     /**

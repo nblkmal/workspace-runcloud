@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\Models\Task;
+use Illuminate\Support\Str;
 
 class TaskObserver
 {
@@ -12,9 +13,9 @@ class TaskObserver
      * @param  \App\Models\Task  $task
      * @return void
      */
-    public function created(Task $task)
+    public function creating(Task $task)
     {
-        //
+        $task->uuid = Str::uuid();
     }
 
     /**
