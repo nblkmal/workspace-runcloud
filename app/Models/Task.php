@@ -16,22 +16,17 @@ class Task extends Model
 
     protected $fillable = [
         'name',
-        'due_date',
-        'due_time',
+        'task_due',
+        'task_complete',
         'status',
         'workspace_id',
         'user_id'
     ];
 
-    public function setDueDateAttribute($value)
-    {
-        $this->attributes['due_date'] = Carbon::parse($value);
-    }
-
-    public function setDueTimeAttribute($value)
-    {
-        $this->attributes['due_time'] = Carbon::parse($value);
-    }
+    protected $casts = [
+        'task_due' => 'immutable_datetime',
+        'task_complete' => 'immutable_datetime',
+    ];
 
     public function scopeIncomplete($query)
     {
