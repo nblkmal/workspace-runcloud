@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Workspace;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Task extends Model
 {
@@ -18,4 +19,9 @@ class Task extends Model
         'due_status',
         'workspace_id',
     ];
+
+    public function workspace()
+    {
+        return $this->belongsTo(Workspace::class, 'workspace_id');
+    }
 }
