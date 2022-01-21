@@ -28,9 +28,12 @@ class WorkspaceController extends Controller
 
     public function show(Workspace $workspace)
     {
+        $this->authorize('view', $workspace);
+
+        $tasks = $workspace->tasks;
         $incomplete_tasks = $workspace->tasks()->incomplete()->get();
         $complete_tasks = $workspace->tasks()->complete()->get();
 
-        return view('workspace.show', compact('workspace', 'incomplete_tasks', 'complete_tasks'));
+        return view('workspace.show', compact('workspace', 'tasks', 'incomplete_tasks', 'complete_tasks'));
     }
 }
