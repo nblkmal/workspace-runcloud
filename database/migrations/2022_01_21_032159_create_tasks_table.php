@@ -19,7 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('name')->nullable();
             $table->string('due_date')->nullable();
             $table->string('due_time')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default('false');
 
             $table->unsignedInteger('workspace_id')->nullable();
             $table->foreign('workspace_id')->references('id')->on('workspaces');
