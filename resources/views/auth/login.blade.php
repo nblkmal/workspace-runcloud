@@ -8,6 +8,9 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
+                    <div class="text-center">
+                        <small>Please login using user@gmail.com and password is 'password'</small>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
