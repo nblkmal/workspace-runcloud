@@ -11,12 +11,18 @@
     <div class="row justify-content-center my-2">
         <div class="col-md-8 card-white">
             <h3>List of tasks</h3>
+
+            <h5>Task Completed</h5>
             <table class="table">
                 <tbody>
                     @forelse ($complete_tasks as $task)
                         <tr>
                             <div class="alert alert-success" role="alert">
                                 {{ $task->name }}
+                                <div class="float-right">
+                                    Completed {{ $task->task_complete->diffForHumans() }}
+
+                                </div>
                             </div>
                         </tr>
                     @empty
@@ -29,14 +35,15 @@
                 </tbody>
             </table>
 
+            <h5>Task Pending</h5>
             <table class="table">
                 <tbody>
                     @foreach ($incomplete_tasks as $task)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
                             <td>{{ $task->name }}</td>
-                            <td>{{ Carbon\Carbon::parse($task->due_date)->diffForHumans() }}</td>
-                            <td>{{ Carbon\Carbon::parse($task->due_time)->diffForHumans() }}</td>
+                            <td>Due on {{ $task->task_due->format('d M Y') }} at {{ $task->task_due->format('H:i a') }}</td>
+                            <td>{{ $task->task_due->diffForHumans() }}</td>
                             <td>
                                 <a href="{{ route('tasks:update', $task) }}" class="btn btn-success">Complete</a>
                                 {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> --}}
@@ -73,5 +80,13 @@
             
         </div>
     </div>
+
+    {{-- <div class="row">
+        <div class="col-md-8">
+            <input type="text" class="form-control datetimepicker" name="Appointment_time"> 
+        </div>
+    </div> --}}
 </div>
 @endsection
+
+
