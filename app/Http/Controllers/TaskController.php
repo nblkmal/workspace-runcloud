@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Task;
 use App\Models\Workspace;
 use Illuminate\Http\Request;
@@ -18,8 +19,7 @@ class TaskController extends Controller
 
         $task = Task::create([
             'name' => $request->name,
-            'due_date' => $request->due_date,
-            'due_time' => $request->due_time,
+            'task_due' => $request->due_date . $request->due_time,
             'workspace_id' => $workspace->id,
             'user_id' => auth()->user()->id,
         ]);
@@ -30,6 +30,7 @@ class TaskController extends Controller
     public function update(Task $task)
     {
         $task->update([
+            'task_complete' => Carbon::now(),
             'status' => true,
         ]);
 
