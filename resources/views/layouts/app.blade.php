@@ -29,6 +29,12 @@
         border-radius: 10px;
         padding: 30px;
     }
+
+    .card-grey {
+        background-color: grey;
+        border-radius: 10px;
+        padding: 30px;
+    }
 </style>
 
 <body>
