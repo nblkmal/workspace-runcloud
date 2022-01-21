@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,6 +18,11 @@ class Workspace extends Model
         'description',
         'user_id'
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 
     public function user()
     {
