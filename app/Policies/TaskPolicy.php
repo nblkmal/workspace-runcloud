@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Task;
 use App\Models\User;
-use App\Models\Workspace;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class WorkspacePolicy
+class TaskPolicy
 {
     use HandlesAuthorization;
 
@@ -25,8 +25,8 @@ class WorkspacePolicy
         return $user;
     }
 
-    public function view(User $user, Workspace $workspace)
+    public function update(User $user, Task $task)
     {
-        return $user->id === $workspace->user_id;
+        return $user->id === $task->user_id;
     }
 }
