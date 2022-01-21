@@ -18,6 +18,10 @@ class CreateWorkspacesTable extends Migration
             $table->uuid('uuid')->nullable();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
+
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->timestamps();
         });
     }
