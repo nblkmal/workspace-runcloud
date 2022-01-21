@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/workspace/index', [App\Http\Controllers\WorkspaceController::class, 'index'])->name('workspace:index');
+Route::post('/workspace/create', [App\Http\Controllers\WorkspaceController::class, 'create'])->name('workspace:create');
+Route::get('/workspace/show/{workspace}', [App\Http\Controllers\WorkspaceController::class, 'show'])->name('workspace:show');
+
+Route::post('/task/create/{workspace}', [App\Http\Controllers\TaskController::class, 'create'])->name('tasks:create');
+Route::get('/task/update/{task}', [App\Http\Controllers\TaskController::class, 'update'])->name('tasks:update');
