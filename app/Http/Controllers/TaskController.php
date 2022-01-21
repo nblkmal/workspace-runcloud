@@ -11,6 +11,8 @@ class TaskController extends Controller
 {
     public function create(Request $request, Workspace $workspace)
     {
+        $this->authorize('create', Task::class);
+
         $validated = $request->validate([
             'name' => 'required|max:255',
             'due_date' => 'required',
@@ -29,6 +31,8 @@ class TaskController extends Controller
 
     public function update(Task $task)
     {
+        $this->authorize('update', $task);
+
         $task->update([
             'task_complete' => Carbon::now(),
             'status' => true,
