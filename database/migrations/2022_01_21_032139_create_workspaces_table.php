@@ -15,6 +15,7 @@ class CreateWorkspacesTable extends Migration
     {
         Schema::create('workspaces', function (Blueprint $table) {
             $table->increments('id');
+            $table->uuid('uuid')->nullable();
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->timestamps();
