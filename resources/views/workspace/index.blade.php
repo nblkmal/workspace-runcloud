@@ -45,8 +45,8 @@
                         @endif
                     </div>
                     <div class="col-md-1">
-                        <a href="{{ route('workspace:show', $work) }}" style="text-decoration: none;"><i class="ri-more-2-fill"></i></a>
-                        <a href="{{ route('workspace:delete', $work) }}" style="text-decoration: none;"><i class="ri-delete-bin-6-fill"></i></a>
+                        <a href="{{ route('workspace:show', $work) }}" style="text-decoration: none;" data-bs-toggle="tooltip" data-bs-placement="top" title="More"><i class="ri-more-2-fill"></i></a>
+                        <a href="{{ route('workspace:delete', $work) }}" style="text-decoration: none; color:crimson;" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="ri-delete-bin-6-fill"></i></a>
                     </div>
                 </div>
             </div>

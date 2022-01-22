@@ -23,12 +23,21 @@
     @else
         
         @foreach ($tasks as $task)
-            <div class="row justify-content-center">
+            <div class="row justify-content-center my-2">
                 <div class="col-md-8 row card-white">
                     <div class="col-md-1">{{ $loop->iteration }}.</div>
-                    <div class="col">{{ $task->name }}</div>
                     <div class="col">
-                        <a href="{{ route('workspace:show', $task->workspace) }}" class="btn btn-primary">Go to</a>
+                        <div class="row">{{ $task->name }}</div>
+                        
+                        <small>Workspace : {{ $task->workspace->name }}</small>
+                    </div>
+                    <div class="col text-center">
+                        <div class="alert alert-warning p-0 m-0 d-flex align-items-center justify-content-center" role="alert">
+                            <i class="ri-time-fill me-1"></i>{{ $task->task_due->longRelativeDiffForHumans() }}
+                        </div>
+                        Due {{ $task->task_due->calendar() }}</div>
+                    <div class="col-md-2">
+                        <a href="{{ route('workspace:show', $task->workspace) }}" class="btn btn-primary">Go to workspace</a>
                     </div>
                 </div>
             </div>

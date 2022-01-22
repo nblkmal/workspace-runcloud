@@ -30,7 +30,7 @@
             <div class="col-md-8 card-white">
                 <h3>List of tasks</h3>
 
-                <h5>Task Completed {{ $complete_tasks->count() }}/{{ $tasks->count() }}</h5>
+                <h5><i class="ri-check-double-fill ri-md me-1"></i>Task Completed {{ $complete_tasks->count() }}/{{ $tasks->count() }}</h5>
                 <table class="table">
                     <tbody>
                         @forelse ($complete_tasks as $task)
@@ -53,23 +53,22 @@
                     </tbody>
                 </table>
 
-                <h5>Task Pending</h5>
+                <h5><i class="ri-time-fill ri-md me-1"></i>Task Pending</h5>
                 <table class="table">
                     <tbody>
                         @foreach ($incomplete_tasks as $task)
                             <tr>
-                                <td scope="row">{{ $loop->iteration }}</td>
+                                <td scope="row">{{ $loop->iteration }}.</td>
                                 <td>{{ $task->name }}</td>
                                 <td>Due {{ $task->task_due->calendar() }}</td>
-                                {{-- <td>Due on {{ $task->task_due->format('d M Y') }} at {{ $task->task_due->format('h:i a') }}</td> --}}
                                 <td class="text-center">
-                                    <div class="alert alert-warning p-0 m-0" role="alert">
-                                        {{ $task->task_due->longRelativeDiffForHumans() }}
+                                    <div class="alert alert-warning p-0 m-0 d-flex align-items-center justify-content-center" role="alert">
+                                        <i class="ri-time-fill me-1"></i>{{ $task->task_due->longRelativeDiffForHumans() }}
                                     </div>
                                 </td>
-                                <td class="text-center">
-                                    <a href="{{ route('task:update', $task) }}" class="btn btn-success">Complete</a>
-                                    <a href="{{ route('task:delete', $task) }}" class="btn btn-danger" style="text-decoration: none; color:white"><i class="ri-close-circle-fill ri-xl"></i></a>
+                                <td class="align-items-center justify-content-center">
+                                    <a href="{{ route('task:update', $task) }}" style="text-decoration: none; color:green"><i class="ri-check-double-fill ri-xl"></i></a>
+                                    <a href="{{ route('task:delete', $task) }}" style="text-decoration: none; color:crimson"><i class="ri-close-circle-fill ri-xl"></i></a>
                                 </td>
                             </tr>
                         @endforeach

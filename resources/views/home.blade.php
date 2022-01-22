@@ -24,9 +24,18 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8 row">
-            <div class="col mx-2 card-white text-center">{{ $workspaces }} Total Workspaces</div>
-            <div class="col mx-2 card-white text-center">{{ $incomplete_tasks }} Pending Tasks</div>
-            <div class="col mx-2 card-white text-center">{{ $incomplete_tasks }} Completed Tasks</div>
+            <div class="col mx-2 card-white text-center">
+                <div class="rounded-circle">{{ $workspaces }}</div>
+                Total Workspaces
+            </div>
+            <div class="col mx-2 card-white text-center">
+                <div class="rounded-circle">{{ $incomplete_tasks }}</div>
+                Pending Tasks
+            </div>
+            <div class="col mx-2 card-white text-center">
+                <div class="rounded-circle">{{ $incomplete_tasks }}</div>
+                Completed Tasks
+            </div>
         </div>
     </div>
 </div>
