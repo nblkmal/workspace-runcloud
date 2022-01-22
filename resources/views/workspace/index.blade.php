@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Your workspaces</h1>
+        </div>
+    </div>
+
     @if ($spaces->isEmpty())
         <div class="row justify-content-center">
             <div class="col-md-8 card-white">
@@ -15,45 +21,44 @@
             </div>
         </div>
     @else
-        <div class="row justify-content-center">
-            <div class="col-md-8 card-white">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Tasks Completed</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($spaces as $work)
-                                <tr>
-                                    <th scope="row">{{ $loop->iteration }}</th>
-                                    <td>{{ $work->name }}</td>
-                                    <td>{{ $work->description }}</td>
-                                    <td>
-                                        @if ($work->tasks->isEmpty())
-                                            No task!
-                                        @else
-                                            {{ $work->tasks()->complete()->count() }}/{{ $work->tasks()->count() }}
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('workspace:show', $work) }}" style="text-decoration: none;"><i class="ri-more-2-fill"></i></a>
-                                        <a href="{{ route('workspace:delete', $work) }}" style="text-decoration: none;"><i class="ri-delete-bin-6-fill"></i></a>
-                                    </td>
-                                </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+        
+        <div class="row justify-content-center my-2">
+            <div class="col-md-8 row card-white" style="padding-top: 10px !important; padding-bottom: 10px !important;">
+                <div class="col-md-1">No.</div>
+                <div class="col">Name</div>
+                <div class="col">Description</div>
+                <div class="col text-center">Task Completed</div>
+                <div class="col-md-1"></div>
             </div>
         </div>
+        @foreach ($spaces as $work)
+            <div class="row justify-content-center">
+                <div class="col-md-8 row card-white">
+                    <div class="col-md-1">{{ $loop->iteration }}.</div>
+                    <div class="col">{{ $work->name }}</div>
+                    <div class="col">{{ $work->description }}</div>
+                    <div class="col text-center">
+                        @if ($work->tasks->isEmpty())
+                            No task!
+                        @else
+                            {{ $work->tasks()->complete()->count() }}/{{ $work->tasks()->count() }}
+                        @endif
+                    </div>
+                    <div class="col-md-1">
+                        <a href="{{ route('workspace:show', $work) }}" style="text-decoration: none;"><i class="ri-more-2-fill"></i></a>
+                        <a href="{{ route('workspace:delete', $work) }}" style="text-decoration: none;"><i class="ri-delete-bin-6-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+        
 
         <div class="row justify-content-center">
-            <div class="col-md-8 card-grey" type="button" data-bs-toggle="modal" data-bs-target="#workspace">
-                Create new workspace
-            </div>
+            {{-- <div class="col-md-8" type="button"> --}}
+                <div class="col-md-8 alert alert-primary text-center" role="alert">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#workspace">Create new workspace</button>
+                </div>
+            {{-- </div> --}}
         </div>
     @endif
     

@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">
+                {{ $error }}
+            </div>
+        @endforeach
+    @endif
+
     <div class="row justify-content-center">
         <div class="col-md-8 card-white">
             <h1>{{ $workspace->name }}</h1>
@@ -52,8 +60,12 @@
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}</td>
                                 <td>{{ $task->name }}</td>
-                                <td>Due on {{ $task->task_due->format('d M Y') }} at {{ $task->task_due->format('H:i a') }}</td>
-                                <td>{{ $task->task_due->diffForHumans() }}</td>
+                                <td>Due on {{ $task->task_due->format('d M Y') }} at {{ $task->task_due->format('h:i a') }}</td>
+                                <td class="text-center">
+                                    <div class="alert alert-warning" role="alert">
+                                        {{ $task->task_due->diffForHumans() }}
+                                    </div>
+                                </td>
                                 <td>
                                     <a href="{{ route('task:update', $task) }}" class="btn btn-success">Complete</a>
                                     <a href="{{ route('task:delete', $task) }}" style="text-decoration: none; color:crimson"><i class="ri-close-circle-fill ri-xl"></i></a>
