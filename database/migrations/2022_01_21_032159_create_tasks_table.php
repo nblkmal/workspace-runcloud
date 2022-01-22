@@ -22,7 +22,8 @@ class CreateTasksTable extends Migration
             $table->string('status')->default('false');
 
             $table->unsignedInteger('workspace_id')->nullable();
-            $table->foreign('workspace_id')->references('id')->on('workspaces');
+            $table->foreign('workspace_id')->references('id')->on('workspaces')->onDelete('cascade');
+
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
 
