@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    public function index()
+    {
+        $tasks = auth()->user()->tasks()->incomplete()->get();
+
+        return view('task.index', compact('tasks'));
+    }
+
     public function create(Request $request, Workspace $workspace)
     {
         $this->authorize('create', Task::class);
