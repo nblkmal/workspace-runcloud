@@ -50,13 +50,13 @@
                     <tbody>
                         @foreach ($incomplete_tasks as $task)
                             <tr>
-                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td scope="row">{{ $loop->iteration }}</td>
                                 <td>{{ $task->name }}</td>
                                 <td>Due on {{ $task->task_due->format('d M Y') }} at {{ $task->task_due->format('H:i a') }}</td>
                                 <td>{{ $task->task_due->diffForHumans() }}</td>
                                 <td>
-                                    <a href="{{ route('tasks:update', $task) }}" class="btn btn-success">Complete</a>
-                                    {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> --}}
+                                    <a href="{{ route('task:update', $task) }}" class="btn btn-success">Complete</a>
+                                    <a href="{{ route('task:delete', $task) }}" style="text-decoration: none; color:crimson"><i class="ri-close-circle-fill ri-xl"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -76,7 +76,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('tasks:create', $workspace) }}" method="post">
+                    <form action="{{ route('task:create', $workspace) }}" method="post">
                         @csrf
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" id="name" name="name" placeholder="name@example.com">
