@@ -35,6 +35,10 @@
         border-radius: 10px;
         padding: 30px;
     }
+
+    td {
+        vertical-align: middle;
+    }
 </style>
 
 <body>
