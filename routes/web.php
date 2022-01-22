@@ -29,3 +29,4 @@ Route::get('/workspace/delete/{workspace}', [App\Http\Controllers\WorkspaceContr
 Route::post('/task/create/{workspace}', [App\Http\Controllers\TaskController::class, 'create'])->name('task:create');
 Route::get('/task/update/{task}', [App\Http\Controllers\TaskController::class, 'update'])->name('task:update');
 Route::get('/task/delete/{task}', [App\Http\Controllers\TaskController::class, 'delete'])->name('task:delete');
+Route::get('/task/index', [App\Http\Controllers\TaskController::class, 'index'])->name('task:index');
