@@ -60,15 +60,16 @@
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}</td>
                                 <td>{{ $task->name }}</td>
-                                <td>Due on {{ $task->task_due->format('d M Y') }} at {{ $task->task_due->format('h:i a') }}</td>
+                                <td>Due {{ $task->task_due->calendar() }}</td>
+                                {{-- <td>Due on {{ $task->task_due->format('d M Y') }} at {{ $task->task_due->format('h:i a') }}</td> --}}
                                 <td class="text-center">
-                                    <div class="alert alert-warning" role="alert">
-                                        {{ $task->task_due->diffForHumans() }}
+                                    <div class="alert alert-warning p-0 m-0" role="alert">
+                                        {{ $task->task_due->longRelativeDiffForHumans() }}
                                     </div>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <a href="{{ route('task:update', $task) }}" class="btn btn-success">Complete</a>
-                                    <a href="{{ route('task:delete', $task) }}" style="text-decoration: none; color:crimson"><i class="ri-close-circle-fill ri-xl"></i></a>
+                                    <a href="{{ route('task:delete', $task) }}" class="btn btn-danger" style="text-decoration: none; color:white"><i class="ri-close-circle-fill ri-xl"></i></a>
                                 </td>
                             </tr>
                         @endforeach
