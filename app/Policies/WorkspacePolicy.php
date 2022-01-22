@@ -29,4 +29,9 @@ class WorkspacePolicy
     {
         return $user->id === $workspace->user_id;
     }
+
+    public function delete(User $user, Workspace $workspace)
+    {
+        return $user->id === $workspace->user_id;
+    }
 }

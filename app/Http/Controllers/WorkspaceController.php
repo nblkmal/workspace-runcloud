@@ -25,7 +25,7 @@ class WorkspaceController extends Controller
             'user_id' => auth()->user()->id,
         ]);
 
-        return back();
+        return redirect()->route('workspace:show', $space);
     }
 
     public function show(Workspace $workspace)
@@ -37,5 +37,14 @@ class WorkspaceController extends Controller
         $complete_tasks = $workspace->tasks()->complete()->get();
 
         return view('workspace.show', compact('workspace', 'tasks', 'incomplete_tasks', 'complete_tasks'));
+    }
+
+    public function delete(Workspace $workspace)
+    {
+        $this->authorize('delete', $workspace);
+
+        $workspace->delete();
+
+        return back();
     }
 }
