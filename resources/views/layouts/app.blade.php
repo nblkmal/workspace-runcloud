@@ -78,6 +78,11 @@
                             @endif
                         @else
                             <li class="nav-item">
+                                <a class="nav-link d-inline-flex align-items-center" href="{{ route('home') }}">
+                                    <i class="ri-dashboard-2-fill"></i>{{ __('Dashboard') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link d-inline-flex align-items-center" href="{{ route('workspace:index') }}">
                                     <i class="ri-folder-3-fill"></i>{{ __('Workspaces') }}
                                 </a>
