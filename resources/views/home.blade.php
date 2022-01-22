@@ -23,10 +23,10 @@
     </div>
 
     <div class="row justify-content-center">
-        <div class="col-md-8 row card-white">
-            <div class="col">Total Workspaces</div>
-            <div class="col">Pending Tasks</div>
-            <div class="col">Completed Tasks</div>
+        <div class="col-md-8 row">
+            <div class="col mx-2 card-white text-center">{{ $workspaces }} Total Workspaces</div>
+            <div class="col mx-2 card-white text-center">{{ $incomplete_tasks }} Pending Tasks</div>
+            <div class="col mx-2 card-white text-center">{{ $incomplete_tasks }} Completed Tasks</div>
         </div>
     </div>
 </div>
