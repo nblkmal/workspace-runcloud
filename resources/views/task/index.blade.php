@@ -28,7 +28,7 @@
                     <div class="col-md-1">{{ $loop->iteration }}.</div>
                     <div class="col">{{ $task->name }}</div>
                     <div class="col">
-                        <a href="{{ route('workspace:show', $task->workspace_id) }}" class="btn btn-primary">Go to</a>
+                        <a href="{{ route('workspace:show', $task->workspace) }}" class="btn btn-primary">Go to</a>
                     </div>
                 </div>
             </div>
