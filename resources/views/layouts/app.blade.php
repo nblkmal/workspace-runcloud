@@ -21,6 +21,9 @@
 
     {{-- Icons --}}
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    {{-- JQuery --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <style>
@@ -80,7 +83,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-inline-flex align-items-center" href="{{ route('workspace:index') }}">
+                                <a class="nav-link d-inline-flex align-items-center" href="{{ route('task:index') }}">
                                     <i class="ri-task-fill"></i>{{ __('Pending Tasks') }}
                                 </a>
                             </li>
