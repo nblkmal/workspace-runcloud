@@ -1,5 +1,7 @@
 ## Workspace Laravel Application
 
+> Please run `php artisan migrate:fresh --seed` before serve in localhost
+
 ### This simple system allow users to create own personal workspaces with tasks along with dateline for every workspaces.
 
 ### Business Requirements
