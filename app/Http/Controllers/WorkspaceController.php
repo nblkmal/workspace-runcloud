@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Workspace;
 use Illuminate\Http\Request;
+use App\Classes\WorkspaceClass;
 
 class WorkspaceController extends Controller
 {
+    protected $workspaceClass;
+
+    public function __construct(WorkspaceClass $workspaceClass)
+    {
+        $this->workspaceClass = $workspaceClass;
+    }
+
     public function index()
     {
         $spaces = auth()->user()->workspaces;
@@ -19,11 +27,7 @@ class WorkspaceController extends Controller
     {
         $this->authorize('create', Workspace::class);
 
-        $space = Workspace::create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'user_id' => auth()->user()->id,
-        ]);
+        $space = $this->workspaceClass->create($request);
 
         return redirect()->route('workspace:show', $space);
     }
