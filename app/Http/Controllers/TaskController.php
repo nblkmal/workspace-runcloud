@@ -5,10 +5,18 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Task;
 use App\Models\Workspace;
+use App\Classes\TaskClass;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    protected $taskClass;
+
+    public function __construct(TaskClass $taskClass)
+    {
+        $this->taskClass = $taskClass;
+    }
+
     public function index()
     {
         $tasks = auth()->user()->tasks()->incomplete()->get();
@@ -26,12 +34,13 @@ class TaskController extends Controller
             'due_time' => 'required',
         ]);
 
-        $task = Task::create([
-            'name' => $request->name,
-            'task_due' => $request->due_date . $request->due_time,
-            'workspace_id' => $workspace->id,
-            'user_id' => auth()->user()->id,
-        ]);
+        $task = $this->taskClass->create($request, $workspace);
+        // $task = Task::create([
+        //     'name' => $request->name,
+        //     'task_due' => $request->due_date . $request->due_time,
+        //     'workspace_id' => $workspace->id,
+        //     'user_id' => auth()->user()->id,
+        // ]);
 
         return back();
     }
