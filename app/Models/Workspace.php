@@ -28,4 +28,9 @@ class Workspace extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function getNameAttribute()
+    {
+        return ucfirst($this->attributes['name']);
+    }
 }
