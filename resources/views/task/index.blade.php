@@ -11,13 +11,7 @@
     @if ($tasks->isEmpty())
         <div class="row justify-content-center">
             <div class="col-md-8 card-white">
-                <h3>You dont have any workspace. Create one now!</h3>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-md-8 card-white" type="button" data-bs-toggle="modal" data-bs-target="#workspace">
-                Create a workspace
+                <h3>No pending task!</h3>
             </div>
         </div>
     @else

@@ -57,7 +57,7 @@
                 <h5><i class="ri-time-fill ri-md me-1"></i>Task Pending</h5>
                 <table class="table">
                     <tbody>
-                        @foreach ($incomplete_tasks as $task)
+                        @forelse ($incomplete_tasks as $task)
                             <tr>
                                 <td scope="row">{{ $loop->iteration }}.</td>
                                 <td>{{ $task->name }}</td>
@@ -72,7 +72,13 @@
                                     <a href="{{ route('task:delete', $task) }}" style="text-decoration: none; color:crimson"><i class="ri-close-circle-fill ri-xl"></i></a>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <div class="alert alert-secondary" role="alert">
+                                    No pending task
+                                </div>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
                 <div class="alert alert-primary text-center" role="alert">
