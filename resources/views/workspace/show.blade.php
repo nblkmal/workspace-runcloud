@@ -13,6 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 card-white">
             <h1>{{ $workspace->name }}</h1>
+            About : {{ $workspace->description }}
         </div>
     </div>
 

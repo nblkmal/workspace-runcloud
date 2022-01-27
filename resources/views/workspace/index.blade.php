@@ -35,7 +35,9 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 row card-white">
                     <div class="col-md-1">{{ $loop->iteration }}.</div>
-                    <div class="col">{{ $work->name }}</div>
+                    <div class="col">
+                        <a href="{{ route('workspace:show', $work) }}" style="text-decoration: none;">{{ $work->name }}</a>
+                    </div>
                     <div class="col">{{ $work->description }}</div>
                     <div class="col text-center">
                         @if ($work->tasks->isEmpty())

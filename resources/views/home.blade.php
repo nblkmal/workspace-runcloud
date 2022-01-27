@@ -33,7 +33,7 @@
                 Pending Tasks
             </div>
             <div class="col mx-2 card-white text-center">
-                <div class="rounded-circle">{{ $incomplete_tasks }}</div>
+                <div class="rounded-circle">{{ $complete_tasks }}</div>
                 Completed Tasks
             </div>
         </div>
