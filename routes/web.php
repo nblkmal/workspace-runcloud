@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/workspace/index', [App\Http\Controllers\WorkspaceController::class, 'index'])->name('workspace:index');
 Route::post('/workspace/create', [App\Http\Controllers\WorkspaceController::class, 'create'])->name('workspace:create');
