@@ -16,9 +16,9 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-8 card-white" type="button" data-bs-toggle="modal" data-bs-target="#workspace">
+            <div class="col-md-8 card-white" type="button" >
                 <div class="alert alert-primary text-center" role="alert">
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#task">Create a workspace</button>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#workspace">Create a workspace</button>
                 </div>
                 
             </div>
